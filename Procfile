@@ -1,1 +1,1 @@
-web: gunicorn image_captioner.wsgi --log-file--
+web: gunicorn image_captioner.wsgi
