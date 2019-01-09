@@ -1,4 +1,4 @@
-torch
+https://download.pytorch.org/whl/cpu/torch-1.0.0-cp36-cp36m-linux_x86_64.whl
 torchvision
 certifi==2018.11.29
 dj-database-url==0.5.0
