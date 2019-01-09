@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin:0;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size:26px;
+    line-height:1.6;
+}
+
+#last_footer {
+    clear: both;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    color: slategray;
+    border-top: 1px solid #d5d5d5;
+    font-size: 17px;
+}
+
+
+@media(max-width: 768px){
+    .container{
+        width: 95%;
+    }
+    body {
+        font-size: 23px;
+    }
+    #last_footer{
+        font-size: 15px;
+    }
+}
