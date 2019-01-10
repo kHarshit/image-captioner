@@ -13,10 +13,28 @@
 <body>
 
     <div class="container">
-    <h1>ImageCaptioner: Image Captioning using Encoder-Decoder</h1>
+    <h1>ImageCaptioner</h1>
+
+        What the computer thinks about an image!
 
     <br />
     <h3><span class="fas fa-code" style="color: orangered"></span> WORK IN PROGRESS</h3>
+
+        <form method="post" enctype="multipart/form-data" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+{#                <input type="file" name="myfile"  />#}
+            <input type="submit" value="Upload" />
+        </form>
+
+{#        {% if file %}#}
+{#            file name: {{ file }}<br />#}
+{#            <img src="{{MEDIA_URL}}{{ file }}" />#}
+{#        {% endif %}#}
+
+    <br />
+
+
 
     Check the project on <a href="https://github.com/kHarshit/image-captioner">github</a>.
 
