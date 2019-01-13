@@ -2,10 +2,11 @@
 
     {% block content %}
 
-        {% if file %}
-            <em>File name:</em> {{ file }}<br />
+        {% if file_name %}
+            <em>File name:</em> {{ file_name_original }}<br />
             <em>The computer:</em> I think it's ...
-{#            <img src="{{MEDIA_URL}}{{ file }}" />#}
+            <!-- disply image in development i.e. when Debug=False -->
+            <img src="{{MEDIA_URL}}{{ file_name }}" />
         {% endif %}
         <br />
 

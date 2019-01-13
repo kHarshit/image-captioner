@@ -2,8 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 # from pytorch.prediction import process
 # import PIL.Image
+import copy
 
 from .forms import FileForm
+from .models import File
 
 
 # def index(request):
@@ -23,10 +25,16 @@ def index(request):
     if request.method == 'POST':
         form = FileForm(request.POST, request.FILES)
         if form.is_valid():
-            myfile = request.FILES['file']
-            print(myfile)
+            myfile = File(file=request.FILES['file'])
+            form.save()
+            file_name = myfile.file  # file attribute of File model object
+            print(file_name)
+            file_name_original = copy.copy(file_name)  # prevent name modification after saving file
             handle_file(myfile)
-            return render(request, 'captionApp/output.html', {'file': myfile})
+            myfile.save()
+            print(file_name)
+            return render(request, 'captionApp/output.html', {'file_name': file_name,
+                                                              'file_name_original': file_name_original})
             # return HttpResponse('File successfully uploaded!')
         # else:
         #     return HttpResponse('Something Went Wrong!')

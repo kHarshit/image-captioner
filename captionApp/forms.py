@@ -1,7 +1,9 @@
 from django import forms
-from django.core.validators import FileExtensionValidator
+from .models import File
 
 
-class FileForm(forms.Form):
+class FileForm(forms.ModelForm):
     """Form handling uploaded image"""
-    file = forms.ImageField(validators=[FileExtensionValidator(['png', 'jpg', 'jpeg'])])
+    class Meta:
+        model = File
+        fields = ('file',)
