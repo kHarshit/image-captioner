@@ -1,24 +1,6 @@
-{% load static %}
+{% extends 'captionApp/base.html' %}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ImageCaptioner</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'captionApp/styles.css' %}" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-</head>
-<body>
-
-    <div class="container">
-    <h1>ImageCaptioner</h1>
-
-        What the computer thinks about an image!
-
-    <br />
-    <h3><span class="fas fa-code" style="color: orangered"></span> WORK IN PROGRESS</h3>
+    {% block content %}
 
         <form method="post" enctype="multipart/form-data" action="">
             {% csrf_token %}
@@ -27,22 +9,4 @@
             <input type="submit" value="Upload" />
         </form>
 
-{#        {% if file %}#}
-            file name: {{ file }}<br />
-{#            <img src="{{MEDIA_URL}}{{ file }}" />#}
-{#        {% endif %}#}
-
-    <br />
-
-
-
-    Check the project on <a href="https://github.com/kHarshit/image-captioner">github</a>.
-
-    </div>
-
-
-    <footer id="last_footer">
-            Copyright &copy; Harshit Kumar 2019
-    </footer>
-</body>
-</html>
+    {% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'captionApp/base.html' %}
+
+    {% block content %}
+
+        {% if file %}
+            <em>File name:</em> {{ file }}<br />
+            <em>The computer:</em> I think it's ...
+{#            <img src="{{MEDIA_URL}}{{ file }}" />#}
+        {% endif %}
+        <br />
+
+    {% endblock %}

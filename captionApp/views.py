@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
-from django.template.defaulttags import url
+# from pytorch.prediction import process
+# import PIL.Image
 
 from .forms import FileForm
 
@@ -10,8 +11,10 @@ from .forms import FileForm
 #     return render(request, template_name='captionApp/index.html')
 
 
-def handle_file(file):
+def handle_file(image):
     """process uploaded file"""
+    # img = PIL.Image.open(image)
+    # print(img.size)
     pass
 
 
@@ -23,8 +26,12 @@ def index(request):
             myfile = request.FILES['file']
             print(myfile)
             handle_file(myfile)
-            return render(request, 'captionApp/index.html', {'file': myfile})
+            return render(request, 'captionApp/output.html', {'file': myfile})
             # return HttpResponse('File successfully uploaded!')
+        # else:
+        #     return HttpResponse('Something Went Wrong!')
     else:
         form = FileForm()
     return render(request, 'captionApp/index.html', {'form': form})
+
+
