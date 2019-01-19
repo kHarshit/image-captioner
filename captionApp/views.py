@@ -47,7 +47,8 @@ def index(request):
             myfile.save()
             print(file_name)
             return render(request, 'captionApp/output.html', {'file_name': file_name,
-                                                              'file_name_original': file_name_original})
+                                                              'file_name_original': file_name_original,
+                                                              'output': output})
             # return HttpResponse('File successfully uploaded!')
         # else:
         #     return HttpResponse('Something Went Wrong!')

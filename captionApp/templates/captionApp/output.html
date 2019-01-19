@@ -4,9 +4,9 @@
 
         {% if file_name %}
             <em>File name:</em> {{ file_name_original }}<br />
-            <em>The computer:</em> I think it's ...
+            <img src="{{MEDIA_URL}}{{ file_name }}" /><br />
+            <em>The computer:</em> I think it's {{ output }}
             <!-- disply image in development i.e. when Debug=False -->
-            <img src="{{MEDIA_URL}}{{ file_name }}" />
         {% endif %}
         <br />
 
