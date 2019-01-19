@@ -1,16 +1,22 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
-# from pytorch.prediction import process
-# import PIL.Image
 import copy
-
 from .forms import FileForm
 from .models import File
+from .prediction import *
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
-# def index(request):
-#     """homepage"""
-#     return render(request, template_name='captionApp/index.html')
+class CustomUnpickler(pickle.Unpickler):
+
+    def find_class(self, module, name):
+        if name == 'Vocabulary':
+            return Vocabulary
+        return super().find_class(module, name)
+
+
+vocab = CustomUnpickler(open('/home/harshit/Downloads/vocab.pkl', 'rb')).load()
 
 
 def handle_file(image):
@@ -31,6 +37,13 @@ def index(request):
             print(file_name)
             file_name_original = copy.copy(file_name)  # prevent name modification after saving file
             handle_file(myfile)
+            # process image
+            output = process(file_name,
+                             '/home/harshit/Downloads/pretrained_model/encoder-5-3000.pkl',
+                             '/home/harshit/Downloads/pretrained_model/decoder-5-3000.pkl',
+                             vocab,
+                             256, 512, 1)
+            print(output)
             myfile.save()
             print(file_name)
             return render(request, 'captionApp/output.html', {'file_name': file_name,
