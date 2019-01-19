@@ -4,6 +4,9 @@ from nltk.tokenize import word_tokenize
 from pycocotools.coco import COCO
 
 
+MIN_WORD_FREQ = 4
+
+
 class Vocabulary(object):
     """Vocabulary wrapper"""
 
@@ -42,7 +45,7 @@ for i, id in enumerate(idx):
         print(f'[{(i+1)/len(ids)}] Tokenized the captions.')
 
 # discard word if freq < min_word_freq
-words = [w for w in w, freq in word_freq.items() if freq >= min_word_freq]
+words = [word for word, cnt in word_freq.items() if cnt >= MIN_WORD_FREQ]
 
 # add special tokens to vocab wrapper.
 vocab = Vocabulary()

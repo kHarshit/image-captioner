@@ -8,7 +8,7 @@ from .models import EncoderCNN, DecoderRNN
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
-def process(image, encoder_path, decoder_path, vocab, embedding_dim, hidden_dim, n_layers):
+def process(image, encoder_path, decoder_path, vocab_path, embedding_dim, hidden_dim, n_layers):
     # apply data transformation
     data_transforms = transforms.Compose([
         transforms.Resize(256),
@@ -19,7 +19,7 @@ def process(image, encoder_path, decoder_path, vocab, embedding_dim, hidden_dim,
     ])
 
     # load vocab
-    with open(vocab, 'rb') as f:
+    with open(vocab_path, 'rb') as f:
         vocab = pickle.load(f)
 
     # build models
@@ -41,7 +41,7 @@ def process(image, encoder_path, decoder_path, vocab, embedding_dim, hidden_dim,
     # process image
     img = PIL.Image.open(image)
     img = data_transforms(img)
-    img.unsqueeze(0)  # Add batch size for PyTorch: [B, C, H, W]
+    img.unsqueeze_(0)  # Add batch size for PyTorch: [B, C, H, W]
 
     # generate captions from the image
     extracted_features = encoder(img)
