@@ -2,7 +2,7 @@ https://download.pytorch.org/whl/cpu/torch-1.0.0-cp36-cp36m-linux_x86_64.whl
 torchvision
 certifi==2018.11.29
 dj-database-url==0.5.0
-Django==2.1.4
+Django>=2.1.4
 gunicorn==19.9.0
 psycopg2==2.7.6.1
 Pygments==2.2.0
