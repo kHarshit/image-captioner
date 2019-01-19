@@ -49,6 +49,11 @@ This image-captioner application is developed using PyTorch and Django. _All the
     
 Your app should now be running on [localhost:8000](http://localhost:8000/).
 
+  Input            |  Output             |
+:-------------------------:|:------------------------:|
+![demo1.png](./samples/demo1.png) | ![demo2.png](./samples/demo2.png) |
+
+
 ## Image captioning with Attention
 
 The problem with encoder-decoder approach is that all the input information needs to be compressed in a fixed length context vector. It makes it difficult for the network to cope up with large amount of input information *(e.g. in text, large sentences)* and produce good results with only that context vector. With attention mechanism, the encoder CNN instead of producing a single context vector to summarize the input image, produces a grid of vectors. In addition to sampling the vocabulary, it also produces a distribution over the locations in the image where the model looks while training thus focusing the attention at one part of image. The idea is described in [Show, Attend and Tell: Neural Image Caption Generation with Visual Attention
