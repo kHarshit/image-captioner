@@ -36,6 +36,9 @@ This image-captioner application is developed using PyTorch and Django. _All the
     ```
 
 2. *(Optional)* Create virtual environment either through *conda* or *virtualenv*
+    ```
+    $ conda env create -f environment.yaml
+    ```
 
 3. Install the dependencies
     ```
