@@ -4,7 +4,9 @@ Image Captioning using Encoder-Decoder
 
 https://imagecaptioner.herokuapp.com/
 
-`</>` **WORK IN PROGRESS**
+An image captioning application based on Neural Image Caption model utilizing encoder-decoder architecture, 
+using pretrained CNN as encoder and LSTM as decoder. 
+
 
 ## Overview
 
@@ -24,7 +26,7 @@ This image-captioner application is developed using PyTorch and Django. _All the
 
 * **Dataset used:** MS-COCO dataset
 * **Vocabulary**: The vocabulary consists of mapping between words and indices.
-* **Encoder:** The ResNet101 model pretrained on Imagenet is used as encoder.
+* **Encoder:** The ResNet152 model pretrained on Imagenet is used as encoder.
 * **Decoder:** The LSTM (Long-Short Term Memory) network is used as decoder. We'll give the decoder RNN a special `<start>` token to indicate the start of the sentence and `<end>` token to indicate end of sequence. In addition to taking two weight matrices i.e. the input at the current time-step and the hidden state at the previous time-step thus combining those to get next hidden states, we need to add image information i.e. third weight matrix. Then, we sample the vocabulary at every time-step.
 
 ## Running locally
@@ -34,6 +36,8 @@ This image-captioner application is developed using PyTorch and Django. _All the
     $ git clone https://github.com/kHarshit/image-captioner.git
     $ cd image-captioner
     ```
+    Download the [pretrained models](https://www.dropbox.com/s/ne0ixz5d58ccbbz/pretrained_model.zip?dl=0) and 
+    [vocab file](https://www.dropbox.com/s/26adb7y9m98uisa/vocap.zip?dl=0) and provide their path in [captionApp/views.py](captionApp/views.py).
 
 2. *(Optional)* Create virtual environment either through *conda* or *virtualenv*
     ```

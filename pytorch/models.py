@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from torchvision.models import resnet101
+from torchvision.models import resnet152
 from torch.nn.utils.rnn import pack_padded_sequence
 
 
@@ -11,7 +11,7 @@ class EncoderCNN(nn.Module):
         """Replace fc layer of pretrained model and initialize layers"""
 
         super().__init__()
-        model = resnet101(pretrained=True)
+        model = resnet152(pretrained=True)
         modules = list(model.children())[:-1]
         self.model = nn.Sequential(*modules)  # unpacking
         self.fc = nn.Linear(model.fc.in_features, embedding_dim)
