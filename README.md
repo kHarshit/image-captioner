@@ -36,8 +36,9 @@ This image-captioner application is developed using PyTorch and Django. _All the
     $ git clone https://github.com/kHarshit/image-captioner.git
     $ cd image-captioner
     ```
-    Download the [pretrained models](https://www.dropbox.com/s/ne0ixz5d58ccbbz/pretrained_model.zip?dl=0) and 
-    [vocab file](https://www.dropbox.com/s/26adb7y9m98uisa/vocap.zip?dl=0) and provide their path in [captionApp/views.py](captionApp/views.py).
+    * Download the [pretrained models](https://www.dropbox.com/s/ne0ixz5d58ccbbz/pretrained_model.zip?dl=0) and 
+    [vocab file](https://www.dropbox.com/s/26adb7y9m98uisa/vocap.zip?dl=0) and provide their path in [captionApp/views.py](captionApp/views.py).  
+    * Complete *TODOs* in [image_captioner/settings.py](image_captioner/settings.py).
 
 2. *(Optional)* Create virtual environment either through *conda* or *virtualenv*
     ```
